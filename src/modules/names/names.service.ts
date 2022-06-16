@@ -55,7 +55,10 @@ export class NamesService {
     }else{
       return false
     }
+  }
 
-
+  clearNamesService(){
+    this._names = [];
+    return true;
   }
 }
