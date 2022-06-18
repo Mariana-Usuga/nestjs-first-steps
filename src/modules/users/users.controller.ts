@@ -20,7 +20,7 @@ export class UsersController {
 
   @Post()
   createUser(@Body() user: UserDto, @Request() req: any) {
-    console.log('body', user, 'reque', req.body);
+    console.log(`body`, user, 'reque', req.body);
     return this.usersService.createUser(user);
   }
 

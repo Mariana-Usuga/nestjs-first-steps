@@ -12,4 +12,20 @@ export class UploadFileService {
     }
     return null;
   }
+
+  uploadFiles(files: Express.Multer.File[]) {
+    const res = [];
+    for (const file of files) {
+      const fileUpload = this.uploadFile(file);
+      if (fileUpload) {
+        res.push(fileUpload);
+      }
+    }
+    return res;
+  }
+
+  download(res, filename: string) {
+    console.log('file', filename);
+    return res.download(`./upload/${filename}`);
+  }
 }
