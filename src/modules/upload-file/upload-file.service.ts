@@ -1,4 +1,5 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
+import { existsSync } from 'fs';
 
 @Injectable()
 export class UploadFileService {
@@ -26,6 +27,9 @@ export class UploadFileService {
 
   download(res, filename: string) {
     console.log('file', filename);
-    return res.download(`./upload/${filename}`);
+    if (existsSync(`./upload/${filename}`)) {
+      return res.download(`./upload/${filename}`);
+    }
+    throw new ConflictException(`El fichero ${filename} no existe`);
   }
 }

@@ -30,7 +30,7 @@ export class UploadFileController {
   }
 
   @Get('download')
-  downloadFile(@Res() res, @Body() body: any) {
+  downloadFile(@Res() res: any, @Body() body: any) {
     console.log('res', res, 'body', body);
     return this.uploadFileService.download(res, body.filename);
   }
