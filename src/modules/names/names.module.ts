@@ -3,9 +3,8 @@ import { NamesController } from './names.controller';
 import { NamesService } from './names.service';
 
 @Module({
-  imports:[],
+  imports: [],
   controllers: [NamesController],
-  providers: [NamesService]
+  providers: [NamesService],
 })
-
 export class NamesModule {}
