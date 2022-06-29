@@ -1,8 +1,8 @@
 export const PATTERNS = {
-  MESSAGERS:{
-    SEND_MESSAGE:{ controller:'sendMessage' }
+  MESSAGERS: {
+    SEND_MESSAGE: { controller: 'sendMessage' },
   },
-  EVENTS:{
-    RECEIVE_MESSAGE:{ controller:'receiveMessage' }
-  }
-}
+  EVENTS: {
+    RECEIVE_MESSAGE: { controller: 'receiveMessage' },
+  },
+};

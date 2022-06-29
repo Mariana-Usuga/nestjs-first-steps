@@ -4,8 +4,8 @@ import { ExampleComunicationController } from './example-comunication.controller
 import { ExampleComunicationService } from './example-comunication.service';
 
 @Module({
-  imports:[MicroserviceConnectionModule],
-  controllers:[ExampleComunicationController],
-  providers: [ExampleComunicationService]
+  imports: [MicroserviceConnectionModule],
+  controllers: [ExampleComunicationController],
+  providers: [ExampleComunicationService],
 })
 export class ExampleComunicationModule {}

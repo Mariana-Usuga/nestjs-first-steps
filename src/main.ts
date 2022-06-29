@@ -14,10 +14,10 @@ async function bootstrap() {
 
   app.connectMicroservice({
     transport: Transport.MQTT,
-    options:{
-      url:`mqtt://${connectionMQTT.broker.host}:${connectionMQTT.broker.port}`
-    }
-  })
+    options: {
+      url: `mqtt://${connectionMQTT.broker.host}:${connectionMQTT.broker.port}`,
+    },
+  });
 
   /*app.connectMicroservice({
     transport:Transport.TCP,

@@ -21,6 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nest-middlewares/helmet": "^6.0.0",
+    "@nest-middlewares/response-time": "^6.0.0",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/mapped-types": "*",
@@ -32,11 +34,8 @@
     "await": "^0.2.6",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
-<<<<<<< HEAD
-    "nodemailer": "^6.7.5",
-=======
     "mqtt": "^4.3.7",
->>>>>>> 64992629e8aa6fe187a0d49a363927aa19d9c199
+    "nodemailer": "^6.7.5",
     "reflect-metadata": "^0.1.13",
     "response-time": "^2.3.2",
     "rimraf": "^3.0.2",
