@@ -4,10 +4,8 @@ import { MqttPublisherController } from './mqtt-publisher.controller';
 import { MqttPublisherService } from './mqtt-publisher.service';
 
 @Module({
-  imports:[
-    MqttSubscriberModule
-  ],
+  imports: [MqttSubscriberModule],
   controllers: [MqttPublisherController],
-  providers: [MqttPublisherService]
+  providers: [MqttPublisherService],
 })
 export class MqttPublisherModule {}

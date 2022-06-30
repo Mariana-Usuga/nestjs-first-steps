@@ -3,11 +3,8 @@ import { MqttSubscriberService } from '../mqtt-subscriber/mqtt-subscriber.servic
 
 @Injectable()
 export class MqttPublisherService {
-
-  constructor(private mqttSubscriberService: MqttSubscriberService){
-
-  }
-  publishTopic(topic: string, data: any){
-    return this.mqttSubscriberService.publishTopic(topic, data)
+  constructor(private mqttSubscriberService: MqttSubscriberService) {}
+  publishTopic(topic: string, data: any) {
+    return this.mqttSubscriberService.publishTopic(topic, data);
   }
 }

@@ -4,12 +4,13 @@ import { MqttPublisherService } from './mqtt-publisher.service';
 
 @Controller('api/v1/mqtt-publisher')
 export class MqttPublisherController {
-  constructor(private mqttPublisherService: MqttPublisherService){
-
-  }
+  constructor(private mqttPublisherService: MqttPublisherService) {}
 
   @Post('publish-topic')
-  publishTopic(@Body() mqttData: MqttDataDto){
-    return this.mqttPublisherService.publishTopic(`ddr-nestjs/${mqttData.topic}`, mqttData.data)
+  publishTopic(@Body() mqttData: MqttDataDto) {
+    return this.mqttPublisherService.publishTopic(
+      `ddr-nestjs/${mqttData.topic}`,
+      mqttData.data,
+    );
   }
 }
