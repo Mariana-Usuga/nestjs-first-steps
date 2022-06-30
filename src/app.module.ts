@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { CacheInterceptor, CacheModule, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NamesModule } from './modules/names/names.module';
@@ -12,8 +12,17 @@ import { MqttSubscriberModule } from './modules/mqtt-subscriber/mqtt-subscriber.
 import { RickAndMortyService } from './modules/rick-and-morty/rick-and-morty.service';
 import { RickAndMortyController } from './modules/rick-and-morty/rick-and-morty.controller';
 import { RickAndMortyModule } from './modules/rick-and-morty/rick-and-morty.module';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import * as redisStore from 'cache-manager-redis-store';
+
 @Module({
   imports: [
+    CacheModule.register({
+      // isGlobal: true,
+      // store: redisStore,
+      // host: 'localhost',
+      // port: 5003,
+    }),
     NamesModule,
     UsersModule,
     UploadFileModule,
@@ -23,6 +32,14 @@ import { RickAndMortyModule } from './modules/rick-and-morty/rick-and-morty.modu
     RickAndMortyModule,
   ],
   controllers: [AppController, RickAndMortyController],
-  providers: [AppService, RickAndMortyService],
+  providers: [
+    AppService,
+    RickAndMortyService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor,
+    },
+  ],
+  // exports: [CacheModule],
 })
 export class AppModule {}

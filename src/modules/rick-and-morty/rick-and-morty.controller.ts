@@ -1,4 +1,10 @@
-import { Controller } from '@nestjs/common';
+import {
+  CacheInterceptor,
+  CacheKey,
+  CacheTTL,
+  Controller,
+  UseInterceptors,
+} from '@nestjs/common';
 import { RickAndMortyService } from './rick-and-morty.service';
 import { Get, Query, Response } from '@nestjs/common';
 import {
@@ -8,12 +14,15 @@ import {
   RedisContext,
 } from '@nestjs/microservices';
 
+// @UseInterceptors(CacheInterceptor)
 @Controller('api/v1/rick-and-morty')
 export class RickAndMortyController {
   constructor(private rickAndMortyService: RickAndMortyService) {}
 
   @Get()
-  getCharacters(@Response() res: any) {
+  @CacheKey('characters')
+  @CacheTTL(60)
+  async getCharacters(@Response() res: any) {
     return this.rickAndMortyService.getCharacters(res);
   }
 
