@@ -24,7 +24,7 @@ export class RickAndMortyService {
     );
 
     await this.cacheManager.set('characters', { key: 2 });
-    await this.cacheManager.set('characters2', { key: response.data });
+    await this.cacheManager.set('characters2', response.data, { ttl: 300 });
     const characters2 = await this.cacheManager.get('characters2');
     console.log('characers redis', characters);
     console.log('characers redis 2', characters2);
